@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html>
+<head >
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSS Animation</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<style type="text/css">
+
+
+		body {
+    		padding: 0;
+    		margin: 0;
+    		font-family: 'Fjalla One', sans-serif;
+    		background: linear-gradient( #fff, #fefefe, #eaeaea);
+			}
+
+		#navbar{
+			display:flex;
+			flex-wrap:wrap;
+			align-items:center;
+			justify-content:space-between;
+			padding-top:.5rem;
+			padding-bottom:.5rem;
+			position:-webkit-sticky;
+			position:sticky;
+			top:0;
+			z-index:1020;
+			width: 100%;
+			
+			}
+
+        nav {
+  			line-height: 60px;
+  			position: fixed;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			background-color: transparent;
+  			transition: background-color 0.4s ease-out;
+  			z-index: 1;
+  			margin-left: -40px;
+			}
+        
+        nav.scroll {
+  			background-color: black;
+ 			color: #eef;
+			}
+
+		nav ul {
+		    line-height: 35px;
+		    list-style: none;
+		    background: rgba(0, 0, 0, 0);
+		    overflow: hidden;
+		    color: #fff;
+		    padding: 0;
+		    text-align: right;
+		    margin: 0;
+		    padding-right: 40px;
+		}
+
+		nav ul li {
+		    display: inline-block;
+		    padding: 12px 30px;
+		    margin-left: 20px;
+		}
+		nav ul li :hover {
+			padding: 12px 30px;
+		    border-radius: 5px;
+		    background-color: rgba(128, 128, 128, 0.374);
+		}
+
+		nav ul li a {
+		    text-decoration: none;
+		    color: #fff;
+		    font-size: 16px;
+		}
+		nav ul li a :hover {
+		    text-decoration: none;
+		    color: #fff;
+		    font-size: 16px;
+
+		}
+
+		.navbar{
+			position:relative;
+			display:flex;
+			flex-wrap:wrap;
+			align-items:center;
+			justify-content:space-between;
+			padding-top:.5rem;
+			padding-bottom:.5rem;
+			}
+
+
+		.navbar-brand{
+			padding-top:.3125rem;
+			padding-bottom:.3125rem;
+			margin-left:50px;
+			font-size:1.25rem;
+			text-decoration:none;
+			white-space:nowrap;
+			}
+
+
+		.sticky-top{
+			position:-webkit-sticky;
+			position:sticky;
+			top:0;
+			z-index:1020;
+			}
+		 
+		form{
+	    	position: relative;
+	    	top:30px;
+	    	left: 30px;
+	    	transform: translate(-50%,-50%);
+		    transition: all 1s;
+		    width: 50px;
+		    height: 50px;
+		    background: white;
+		    box-sizing: border-box;
+		    border-radius: 25px;
+		    border: 4px solid #282f37;
+		    padding: 5px;
+		}
+
+		input{
+		    position: absolute;
+		    top: -1px;
+		    left: -0.5px;
+		    width: 100%;;
+		    height: 44px;
+		    line-height: 30px;
+		    outline: 0;
+		    border: 0;
+		    display: none;
+		    font-size: 1em;
+		    border-radius: 20px;
+		    padding: 0 20px;
+		}
+
+		.fa{
+		    box-sizing: border-box;
+		    padding: 10px;
+		    width: 42.5px;
+		    height: 42.5px;
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    border-radius: 50%;
+		    color: #07051a;
+		    text-align: center;
+		    font-size: 1.2em;
+		    transition: all 1s;
+		}
+
+		form:hover{
+		    width: 200px;
+		    cursor: pointer;
+		}
+
+		form:hover input{
+		    display: block;
+		    background-color:#282f37;
+		}
+
+		form:hover .fa{
+		    background: white;
+		    color: red;
+		}
+	    .cursor {
+   		   position: relative;
+   		   margin-left: 828px;
+   		   margin-top: -43px;
+        }
+		
+		.cursor i {
+    	   position: absolute;
+           width: 1px;
+           height: 100%;
+           background-color: gray;
+           left: 5px;
+           top: 10%;
+           animation-name: blink;
+           animation-duration: 800ms;
+           animation-iteration-count: infinite;
+           opacity: 1;
+        }
+
+		.cursor input:focus + i {
+           display: none;
+        }
+
+        @keyframes blink {
+          from { opacity: 1; }
+            to { opacity: 0; }
+        }	    
+	
+.accordion {
+    max-width: 990px;
+    background: rgba(0, 0, 0, 0.10);
+    height: 300px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin-bottom: 100px;
+}
+.box {
+    position: relative;
+    height: 100%;
+    flex: 1;
+    background-position: left;
+    background-size: cover;
+    transition: .7s;
+}
+.box:hover{
+    flex: 7;
+    height: 300px;
+}
+.a1 {
+    background-image: url("https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2015/09/gettyimages-133151560.jpg?itok=r-y2xK4z");
+}
+.a2 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d7/Tour_de_France_2016%2C_Stage_18_-_Sallanches_to_Meg%C3%A8ve_%2828351572514%29.jpg")
+}
+.a3 {
+    background-image: url("https://www.wallpapersshare.com/img/big/shocking-expression-of-cat.jpg");
+    color: #fff;
+}
+.a4 {
+    background-image: url("https://images.pexels.com/videos/4092617/chicken-chicken-dish-chicken-fry-chicken-tawa-fry-4092617.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    color: #fff;
+}
+.a5 {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWo4ZP03cE89mxHTQehSJQUKUPR-pGQAox4A&usqp=CAU");
+
+}
+.a6 {
+    background-image: url("https://p0.pikrepo.com/preview/145/181/three-horse-statue-on-top-of-building.jpg");
+
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    padding: 10px;
+}
+.box:hover .text{
+    opacity:1;
+}
+
+@media screen and (max-width: 800px){
+    body{
+        margin: 0;
+    }
+    .accordion {
+        flex-direction: column;
+        height: 700px;
+        box-shadow: none;
+    }
+    .box {
+        box-shadow: none;
+    	}
+    .box:hover {
+        flex: 7;
+    	}
+   }
+
+   .zoom {
+  		padding: 20px 10px;
+  		transition: transform .2s; /* Animation */
+  		width: 300px;
+  		}
+
+  .zoom:hover {
+  		transform: scale(1.1); 
+  		cursor: pointer;
+  		}
+
+.fa{
+	display:inline-block;
+	font:normal normal normal 14px/1 FontAwesome;
+	font-size:inherit;
+	text-rendering:auto;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+   }
+
+.typewriter h2 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right:3px solid gray; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin-right: 360px; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 40% }
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: gray; }
+}
+
+
+
+
+.animation {
+	background-color: rgb(253, 125, 39);
+    text-align: center;
+    overflow: hidden;
+    margin-top:0px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+::selection {
+    background: rgb(70, 69, 69);
+}
+
+.animation * {
+    margin: 0;
+    padding: 0;
+    }
+   *, ::after, ::before {
+    box-sizing: border-box;
+}
+.animation .grid {
+    width: 805px;
+    height: 1300px;
+    margin: 40px auto 80px auto;
+    perspective: 300px;
+    padding: 0px;
+    }
+    .animation .animate {
+    font: 12px Montserrat;
+    background: rgb(253, 125, 39);
+    color: white;
+    padding: 387px 50%;
+    padding-bottom: 10px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.images{
+	width: 80px;
+	height: 80px;
+	margin-left:-5px;
+}
+
+.left1{
+	background-color:#064f49;
+	width: 50%;
+	height: 20%;
+	float: left;
+	color: #ffffff;
+    display: table;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.hovertext{
+  color: white;
+  width: 90%;
+  margin-top: -475px;
+  border-left: 5px solid white;
+  padding: 0px 20px 0px 40px;
+  line-height: 1.6;
+  font-size: 18px;
+  position: absolute;
+  right: -600px;
+  background: transparent;
+  transition: 0.5s ease-out 0.5s;
+}
+
+.left1:hover{
+	filter: brightness(80%);
+}
+
+.left1:hover .hovertext{
+	transition: 0.5s ease-out 0s;
+    right: 20px;
+}
+
+.heading{
+	color: white;
+	position: absolute;
+	bottom:380px;
+	right: -350px;
+	transition: 0.5s ease-out 0.2s;
+/**	transition-delay:1s;
+	transition-duration:1s;**/
+}
+
+.left1:hover .heading{
+	transition: 0.5s ease-out 0.7s;
+    right:200px;
+}
+
+.para{
+    color: white;
+    position: absolute;
+    bottom: -525px;
+    margin-left: 50px;
+    padding: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+    transition: 0.5s ease-out -0.1s;
+}
+
+.left1:hover .para{
+    bottom: 25px;
+    transition: 0.5s ease-out 1s;
+}
+
+.right1{
+    background-color: #874b59;
+    width: 50%;
+    height: 20%;
+    float:right;
+    margin-top: -523px;
+    cursor: pointer;
+}
+
+.right1:hover{
+	filter: brightness(80%);
+}
+
+.left2{
+    background-color: #9386a7;
+    width: 50%;
+	height: 20%;
+	float: left;
+	margin-right: 1px;
+	color: #ffffff;
+    display: table;  
+}
+
+.left2:hover{
+	filter: brightness(80%);
+}
+
+.right2{
+    background-color:#b38410;
+    width: 50%;
+	height: 20%;
+	padding: 5.3px;
+	float: right;
+	margin-top:-522.5px; 
+	margin-right: 0.5px;
+	color: #ffffff;
+    display: table;
+}
+
+.right2:hover{
+	filter: brightness(80%);
+}
+
+.left3{
+	background-color: #874b59;
+    width: 50%;
+	height: 20%;
+	padding: 5.3px;
+	float: left;
+    margin-top: -1px;
+	color: #ffffff;
+    display: table;
+}
+
+.left3:hover{
+	filter: brightness(80%);
+}
+
+.right3{
+    background-color: #064f49;
+    width: 50%;
+	height: 20%;
+	float: right;
+	margin-right: 1px;
+	margin-top: -521.3px;
+	color: #ffffff;
+    display: table;
+}
+
+.right3:hover{
+	filter: brightness(80%);
+}
+
+.left4{
+	background-color:#b38410;
+    width: 50%;
+	height: 20%;
+	padding: 5.3px;
+	float: left;
+    margin-top: -1px;
+	color: #ffffff;
+    display: table;
+}
+
+.left4:hover{
+	filter: brightness(80%);
+}
+
+.right4{
+    background-color: #9386a7;
+    width: 50%;
+	height: 20%;
+	float: right;
+	color: #ffffff;
+    display: table;
+}
+
+.right4:hover{
+	filter: brightness(80%);
+}
+
+
+
+.fb{
+  position: absolute;
+  margin-top: -15px;
+  filter:grayscale(50);
+  width: 60px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.fb:hover{
+  filter:grayscale(0);
+}
+
+.twitter{
+  position: absolute;
+  width: 60px;
+  border-radius: 50px;
+  filter:grayscale(50);
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.twitter:hover{
+  filter:grayscale(0);
+}
+
+.github{
+  position: absolute;
+  filter:contrast(0);
+  width: 60px;
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.github:hover{
+  filter:contrast(1);  
+}
+
+.dribble{
+  position: absolute;
+  width: 60px;
+  border-radius: 60px;
+  margin-top: -15px;
+  filter:grayscale(50);
+  cursor: pointer;
+}
+
+.dribble:hover{
+  filter:grayscale(0);
+}
+
+.pinterest{
+  position: absolute;
+  width: 60px;
+  border-radius: 60px;
+  margin-top: -15px;
+  filter: contrast(20%);
+  cursor: pointer;
+}
+
+.pinterest:hover{
+  filter: contrast(1);  
+}
+
+.icon{
+    background-color:grey
+    width: 10%;
+    height: 10%;
+    float: left;
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-bottom: 0px
+    color: #ffffff;
+    display: table;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.word{
+    background-color: white;
+    color: blue;
+    position: absolute;
+    bottom: -525px;
+    margin-left: -8px;
+    padding: 2px;
+    font-size: 16px;
+    font-family: calibri;
+    transition: 1s ease-out 0s;
+}
+
+.icon:hover .word{
+    bottom: 60px;
+    transition: 1s ease-out -0.5s;
+}
+
+
+.table1{
+  float: left;
+  margin-left: 300px;
+  width:170px;
+  height:440px;
+  background-color:white;
+  border:1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.table2{
+  float: left;
+  width:174px;
+  height:440px;
+  margin-top: -10px;
+  background-color: white;	
+  box-shadow: 0 0 20px 10px lightgrey;
+  border-radius:3px;
+  border:3px solid lightgrey;
+}
+
+.table3{
+  float: left;
+  width:170px;
+  height:440px;
+  background-color: white;
+  border-radius:3px;
+  border-top:1px solid lightgrey;
+  border-bottom:1px solid lightgrey;
+  border-right:1px solid lightgrey;
+  margin-left: 15px;
+}
+
+.table4{
+  float: left;
+  width:170px;
+  height:440px;
+  background-color:white;
+  border-radius:3px;
+  border:1px solid lightgrey;
+}
+
+.animation .grid .img
+                 {
+                   width: 70px;
+                   height: 70px;
+                   display: block;
+                   float: left;
+                 }
+        
+                .img
+                {
+                   vertical-align: middle;
+                   border-style: none;
+                   transition: width 2s;
+                }
+
+                }
+                .img:hover{
+                    width: 300px;
+                }
+
+                .animation
+                {
+                    text-align: center;
+                    overflow: hidden;
+                    margin-top: -50px;
+                    margin-bottom: 50px;
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    background-color: rgb(253, 125, 39);
+                }
+                .animation .grid
+                {
+                    width: 700px;
+                    height: 300px;
+                    margin: 0px auto 80px auto;
+                    perspective: 300px;
+                    padding-top: 28px;
+                }
+                .animation .animate
+                {
+                    font: 12px Montserrat;
+                    background-color: rgb(253, 125, 39);
+                    color: white;
+                    padding: 387px 50%;
+                    padding-bottom: 10px;
+                    border-radius: 0px;
+                    cursor: pointer;
+                }
+                       
+.img {
+    display: block;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.is-hidden .img:hover {
+    background-color: #FFCCCC;
+    transform: rotate(180deg);
+}
+.is-hidden:hover { 
+    opacity: 0; 
+    transition: 0.6s; 
+    transform: scale(0); 
+} 
+.image-0 { 
+    opacity: 1; 
+    transition: 0.6s; 
+    transition-delay: 1s;
+    transform: scale(1); // Bring it back to normal 
+    pointer-events: auto; // Make it clickable again 
+}    
+
+</style>
+
+<script type="text/javascript">
+	
+  window.onscroll = () => {
+  const nav = document.querySelector('#navbar');
+  if(this.scrollY <= 10) nav.className = ''; else nav.className = 'scroll';
+};
+
+</script>
+
+</head>
+
+
+
+
+
+<body style=" background-image: url('https://i.pinimg.com/originals/f5/bf/9e/f5bf9eb26297ae56c778a64250ad9827.png');background-repeat: no-repeat;background-size: 1500px 800px;color: white;padding:0;">
+
+	<nav id='navbar' class="navbar sticky-top " >
+    <b><a class="navbar-brand">LOGO</a></b>
+    <form action="">
+   
+       <input type="search" placeholder="Search ...">
+        <span ><i class="fa fa-search"></i></span>
+    </form>
+    <ul>
+    <li><a  href="#">Home</a></li>
+    <li><a  href="#">About</a></li>
+    <li><a  href="#">Blog</a></li>
+    <li><a  href="#">Testimonials</a></li>
+    <li><a  href="#"> Contact</a></li>
+    </ul>
+   
+</nav>
+
+<div class="typewriter">
+  <h2 style="margin-left: 410px;margin-top: 770px;color:grey;font-family: 'Inconsolata',monospace;">Hi folks, Welcome to Sctpl :)</h2>
+</div>
+
+<br><br>
+<div class="accordion">
+    <div class="box a1">
+      <div class="image_1">
+        <div class="text">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum iaculis nisl sed dictum aliquam.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="box a2">
+      <div class="image_2">
+        <div class="text">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum iaculis nisl sed dictum aliquam.
+           </p>
+        </div>
+      </div>
+    </div>
+
+ <!-- BOX 3 -->
+    <div class="box a3">
+      <div class="image_3">
+        <div class="text">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum iaculis nisl sed dictum aliquam.
+           </p>
+        </div>
+      </div>
+    </div>
+
+ <!-- BOX 1 -->
+    <div class="box a4">
+      <div class="image_4">
+        <div class="text">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum iaculis nisl sed dictum aliquam.
+          </p>
+        </div>
+      </div>
+    </div>
+
+      
+    <div class="box a5">
+      <div class="image_5">
+        <div class="text">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum iaculis nisl sed dictum aliquam.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box a6">
+      <div class="image_6">
+        <div class="text">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum iaculis nisl sed dictum aliquam.
+          </p>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+  <div class="zoom" style="background-color:rgba(255,165,0,0.75);float: left;margin-left: 150px;"><br>
+    <pre style="text-align:center;font-family: calibri;">Illud phantasma industria 
+    vexillum scriptor 
+accumsan fuit unquam 
+cum 1500s, cum 
+incognita est a printer 
+tulit unam, et diripienda 
+autem genus est genus 
+ut libero. Sed etiam in 
+saltu electronic 
+condimentum, 
+remanserant per se 
+unum. Is eram in 1960 
+popularized cum 
+remissionis de Letraset 
+Folia accumsan locis, 
+recentius in desktop 
+software quasi operturus 
+Jeep libellorum ex eros 
+etiam accumsan.</pre>
+  </div>
+
+  <div class="zoom" style="background-color:rgba(102,102,255,0.75);float: left;"><br>
+    <pre style="text-align:center;font-family: calibri;">Illud phantasma industria 
+    vexillum scriptor 
+accumsan fuit unquam 
+cum 1500s, cum 
+incognita est a printer 
+tulit unam, et diripienda 
+autem genus est genus 
+ut libero. Sed etiam in 
+saltu electronic 
+condimentum, 
+remanserant per se 
+unum. Is eram in 1960 
+popularized cum 
+remissionis de Letraset 
+Folia accumsan locis, 
+recentius in desktop 
+software quasi operturus 
+Jeep libellorum ex eros 
+etiam accumsan.</pre>
+  </div>
+
+  <div class="zoom" style="background-color:rgba(255,153,204,0.75);float: left;"><br>
+    <pre style="text-align:center;font-family: calibri;">Illud phantasma industria 
+    vexillum scriptor 
+accumsan fuit unquam 
+cum 1500s, cum 
+incognita est a printer 
+tulit unam, et diripienda 
+autem genus est genus 
+ut libero. Sed etiam in 
+saltu electronic 
+condimentum, 
+remanserant per se 
+unum. Is eram in 1960 
+popularized cum 
+remissionis de Letraset 
+Folia accumsan locis, 
+recentius in desktop 
+software quasi operturus 
+Jeep libellorum ex eros 
+etiam accumsan.</pre>
+  </div>
+
+
+<p style="color: black;margin-top: 650px;padding:3px 40px;font-size: 20px;line-height: 1.5; ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+
+<p style="color: black;padding:3px 40px;font-size: 20px;line-height: 1.5;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+<br><br><br>
+
+<div class="animation " >
+    <br>
+        <div class="grid ">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/1.jpg">
+        <img class="is-hidden image-0 img " src="http://thecodeplayer.com/u/uifaces/2.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/3.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/4.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/5.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/6.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/7.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/8.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/9.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/10.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/11.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/12.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/13.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/14.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/15.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/16.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/17.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/18.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/19.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/20.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/21.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/22.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/23.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/24.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/25.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/26.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/27.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/28.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/29.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/30.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/31.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/32.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/33.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/34.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/35.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/36.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/37.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/38.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/39.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/40.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/41.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/42.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/43.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/44.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/45.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/46.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/47.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/48.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/49.jpg">
+        <img class="is-hidden image-0 img" src="http://thecodeplayer.com/u/uifaces/50.jpg">
+        </div>
+        <br><br>
+    </div>
+        <span class="animate"></span>
+      </div>
+
+	<a style="color: white;" href="#"><div class="left1">
+		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample42.jpg" style="width: 631px;padding: 30px 0px;">
+
+		<div class="hovertext">
+			<h1 style="visibility: hidden;">IF WE COULD LAUGH</h1>
+            <p style="visibility: hidden;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</div>
+
+		<h1 class="heading">IF WE COULD LAUGH</h1> 
+		<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	</div></a>
+	<a style="color: white;" href="#"><div class="right1">
+		<h2 style="margin-left: 10px;">A post about things and stuff</h2>
+		<img src="https://image.flaticon.com/icons/png/512/2948/2948088.png" style="width: 60px;padding: 0px 10px;float: left;">
+		<p style="float: left;margin-top: 10px;margin-bottom: 426px;">Feb 25th,2017</p>
+	</div></a>
+
+
+	<a href="#"><div class="left2">
+		<h2 style="margin-left: 10px;">A post about things and stuff</h2>
+		<img src="https://image.flaticon.com/icons/png/512/2948/2948088.png" style="width: 60px;padding: 0px 10px;float: left;">
+		<p style="float: left;margin-top: 10px;margin-bottom: 426px;">Feb 25th,2017</p>
+	</div></a>
+	<a href="#"><div class="right2">
+		<p style="border-left: 4px solid black;margin-left: 12px;padding:7px 20px;color: black;line-height: 1.5;">
+			 "The U.S. is fast approaching $19.000,000,000,000.00 in national debt. This is 
+		     mathematically impossible to ever pay back... even if every American was taxed<br> 
+	         at 100%."<br>
+	         <span style="line-height: 3;">-- Charles Goyette, The Dollar Meltdown</span></p><br>
+
+		<p style="border-right: 4px solid black;margin-right: 12px;padding:7px 20px;color: black;line-height: 1.5;text-align: right;">
+			 "79 million Baby Boomers are about to retire, pull their money out of the<br> 
+			 economy, and demand their $35 Trillion Dollars in Social Security & Medicare.<br>
+             Think that through..."<br>
+             <span style="line-height: 3;">Robert Kiyosaki --</span></p><br>
+
+        <p style="border-left: 4px solid black;margin-left: 12px;padding:7px 20px;color: black;line-height: 1.5;">
+        	"23.4% of Americans are Currently Unemployed... not the 9.1% they'd like you <br>to believe."<br>
+            <span style="line-height: 3;">-- ShadowStats.com</span>
+        </p>
+	</div></a>
+
+
+	<a href="#"><div class="left3">
+		<p style="border-left: 4px solid black;margin-left: 12px;padding:7px 20px;color: black;line-height: 1.5;">
+			 "The U.S. is fast approaching $19.000,000,000,000.00 in national debt. This is 
+		     mathematically impossible to ever pay back... even if every American was taxed<br> 
+	         at 100%."<br>
+	         <span style="line-height: 3;">-- Charles Goyette, The Dollar Meltdown</span></p><br>
+
+		<p style="border-right: 4px solid black;margin-right: 12px;padding:7px 20px;color: black;line-height: 1.5;text-align: right;">
+			 "79 million Baby Boomers are about to retire, pull their money out of the<br> 
+			 economy, and demand their $35 Trillion Dollars in Social Security & Medicare.<br>
+             Think that through..."<br>
+             <span style="line-height: 3;">Robert Kiyosaki --</span></p><br>
+
+        <p style="border-left: 4px solid black;margin-left: 12px;padding:7px 20px;color: black;line-height: 1.5;">
+        	"23.4% of Americans are Currently Unemployed... not the 9.1% they'd like you <br>to believe."<br>
+            <span style="line-height: 3;">-- ShadowStats.com</span>
+        </p>
+	</div></a>
+    <a href="#"><div class="right3">
+		<h2 style="margin-left: 10px;">A post about things and stuff</h2>
+		<img src="https://image.flaticon.com/icons/png/512/2948/2948088.png" style="width: 60px;padding: 0px 10px;float: left;">
+		<p style="float: left;margin-top: 10px;margin-bottom: 426px;">Feb 25th,2017</p>
+	</div></a>
+
+
+	<a href="#"><div class="left4">
+		<p style="border-left: 4px solid black;margin-left: 12px;padding:7px 20px;color: black;line-height: 1.5;">
+			 "The U.S. is fast approaching $19.000,000,000,000.00 in national debt. This is 
+		     mathematically impossible to ever pay back... even if every American was taxed<br> 
+	         at 100%."<br>
+	         <span style="line-height: 3;">-- Charles Goyette, The Dollar Meltdown</span></p><br>
+
+		<p style="border-right: 4px solid black;margin-right: 12px;padding:7px 20px;color: black;line-height: 1.5;text-align: right;">
+			 "79 million Baby Boomers are about to retire, pull their money out of the<br> 
+			 economy, and demand their $35 Trillion Dollars in Social Security & Medicare.<br>
+             Think that through..."<br>
+             <span style="line-height: 3;">Robert Kiyosaki --</span></p><br>
+
+        <p style="border-left: 4px solid black;margin-left: 12px;padding:7px 20px;color: black;line-height: 1.5;">
+        	"23.4% of Americans are Currently Unemployed... not the 9.1% they'd like you <br>to believe."<br>
+            <span style="line-height: 3;">-- ShadowStats.com</span>
+        </p>
+	</div></a>
+	<a href="#"><div class="right4">
+		<h2 style="margin-left: 10px;">A post about things and stuff</h2>
+		<img src="https://image.flaticon.com/icons/png/512/2948/2948088.png" style="width: 60px;padding: 0px 10px;float: left;">
+		<p style="float: left;margin-top: 10px;margin-bottom: 426px;">Feb 25th,2017</p>
+	</div></a>
+
+
+    <p style="margin-top: 130%;color: black;visibility: hidden;">Some random phrase</p>
+   
+
+<!--none|blur()|brightness()|contrast()|drop-shadow()|grayscale()
+        |hue-rotate()|invert()|opacity()|saturate()|sepia()|url();-->
+
+
+
+<div class="pricing_table">
+
+	<div class="table1">
+       <div style="background-color: #DDDDDD;height: 100px;width:170px;margin-top: -22px;">
+       	 
+       	 <center><p style="color: black;line-height: 2.5; font-size: 23px;">Enterprise</p></center>
+       </div>
+       <div style="background-color: white;height: 280px;width:170px;">
+       	<br><br><br><br>
+       	 <center><b><a style="text-decoration:none;background-color: #79D70F;padding: 9px 17px;color: white;border-radius: 3px; " href="#">SIGN UP</a></b></center><br>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>10GB</b> Disk Space</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;"><b>100GB</b> Monthly <br>Bandwidth</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>20</b> Email Accounts</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>Unlimited</b> subdomains</p></center>
+       </div>
+
+
+       <div style="background-color: #DDDDDD;width: 90px;height: 90px;margin-top: -320px;margin-left: 36px;border-radius: 50px;border:5px solid white;">
+       	<div style="background-color: white;width: 60px;height: 60px;border-radius: 40px;margin-top:15px;margin-left: 10px;">
+       	  <h2 style="color: #5B5B5B;margin-left:7px;position: absolute;">$59</h2>
+        </div>
+       </div>
+		
+	</div>
+
+	<div class="table2">
+	   <div style="background-color: #DDDDDD;height: 110px;width:168px;margin-top: -22px;">
+       	 
+       	 <center><p style="color: black;line-height: 2.5; font-size: 23px;">Professional</p></center>
+       </div>
+       <div style="background-color: white;height: 280px;width:168px;">
+       	<br><br><br><br>
+       	 <center><b><a style="text-decoration:none;background-color: #79D70F;padding: 9px 17px;color: white;border-radius: 3px; " href="#">SIGN UP</a></b></center><br>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>5GB</b> Disk Space</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;"><b>50GB</b> Monthly <br>Bandwidth</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>10</b> Email Accounts</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>Unlimited</b> subdomains</p></center>
+       </div>
+
+
+       <div style="background-color: #DDDDDD;width: 90px;height: 90px;margin-top: -320px;margin-left: 36px;border-radius: 50px;border:5px solid white;">
+       	<div style="background-color: white;width: 60px;height: 60px;border-radius: 40px;margin-top:15px;margin-left: 10px;">
+       	  <h2 style="color: #5B5B5B;margin-left:7px;position: absolute;">$29</h2>
+        </div>
+       </div>	
+	</div>
+
+	<div class="table3">
+		<div style="background-color: #DDDDDD;height: 100px;width:170px;margin-top: -22px;">
+       	 
+       	 <center><p style="color: black;line-height: 2.5; font-size: 23px;">Standard</p></center>
+       </div>
+       <div style="background-color: white;height: 280px;width:167px;">
+       	<br><br><br><br>
+       	 <center><b><a style="text-decoration:none;background-color: #79D70F;padding: 9px 17px;color: white;border-radius: 3px; " href="#">SIGN UP</a></b></center><br>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>3GB</b> Disk Space</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;"><b>25GB</b> Monthly <br>Bandwidth</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>5</b> Email Accounts</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>Unlimited</b> subdomains</p></center>
+       </div>
+
+
+       <div style="background-color: #DDDDDD;width: 90px;height: 90px;margin-top: -320px;margin-left: 36px;border-radius: 50px;border:5px solid white;">
+       	<div style="background-color: white;width: 60px;height: 60px;border-radius: 40px;margin-top:15px;margin-left: 10px;">
+       	  <h2 style="color: #5B5B5B;margin-left:7px;position: absolute;">$17</h2>
+        </div>
+       </div>
+	</div>
+
+	<div class="table4">
+		<div style="background-color: #DDDDDD;height: 100px;width:170px;margin-top: -22px;">
+       	 
+       	 <center><p style="color: black;line-height: 2.5; font-size: 23px;">Basic</p></center>
+       </div>
+       <div style="background-color: white;height: 280px;width:167px;">
+       	<br><br><br><br>
+       	 <center><b><a style="text-decoration:none;background-color: #79D70F;padding: 9px 17px;color: white;border-radius: 3px; " href="#">SIGN UP</a></b></center><br>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>1GB</b> Disk Space</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;"><b>10GB</b> Monthly <br>Bandwidth</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>2</b> Email Accounts</p></center>
+       	 <hr style="border-style: solid;background-color:#DDDDDD;height:2.5px;width:70%;border-radius: 10px;">
+       	 <center><p style="color: #5B5B5B;font-size: 13px;line-height: 0.7;"><b>Unlimited</b> subdomains</p></center>
+       </div>
+
+
+       <div style="background-color: #DDDDDD;width: 90px;height: 90px;margin-top: -320px;margin-left: 36px;border-radius: 50px;border:5px solid white;">
+       	<div style="background-color: white;width: 60px;height: 60px;border-radius: 40px;margin-top:15px;margin-left: 10px;">
+       	  <h2 style="color: #5B5B5B;margin-left:15px;position: absolute;">$9</h2>
+        </div>
+       </div>
+	</div>
+
+</div>
+
+ <ul style="list-style: none;background-color: #555555;padding: 7px 0px 10px 0px;height: 100px;margin-top: 470px;">
+    <li style="float:left;margin-left: 420px;">
+        <a style="color: white;" href="#">
+        
+        <div class="icon">
+        <img class="fb" src="https://www.seekpng.com/png/small/190-1905801_facebook-button-png-facebook-icon-blue-circle.png">
+        <div>
+            <p style="visibility: hidden;">FACEBOOK</p>
+        </div>
+
+        <p class="word" style="margin-left: -3px;color: rgba(0,141,239,1);">Facebook</p>
+       
+       </div></a>
+    </li>
+    <li style="float:left;margin-left: -15px;">
+        <a style="color: white;" href="#">
+        
+        <div class="icon">
+        <img class="twitter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Midpn0CkBx-cEBpv7TwvqvaF4A99QSTxS62a2ls9_fImur5rqixhtZW8LAgPeI3U5no&usqp=CAU">
+        <div>
+            <p style="visibility: hidden;">TWITTER</p>
+        </div>
+
+        <p class="word" style="margin-left: 7px;color: #28aae1;">Twitter</p>
+       
+       </div></a>
+    </li>
+    <li style="float:left;">
+        <a style="color: white;" href="#">
+        
+        <div class="icon">
+        <div style="background-color: white;height: 30px;width: 30px;margin-left: 15px;margin-top: 0px; position: absolute;"></div>
+        <img class="github" src="https://www.freeiconspng.com/uploads/github-logo-icon-24.png">
+        <div>
+            <p style="visibility: hidden;">GITHUB</p>
+        </div>
+
+        <p class="word" style="margin-left: 3px;color: black;">GitHub</p>
+       
+       </div></a>
+    </li>
+    <li style="float:left;margin-left: 10px;">
+        <a style="color: white;" href="#">
+        
+        <div class="icon">
+        <div style="background-color: white;height: 30px;width: 30px;margin-left: 15px;margin-top: 0px; position: absolute;"></div>
+        <img class="dribble" src="https://pics.freeicons.io/uploads/icons/png/14856683291579157337-512.png">
+        <div>
+            <p style="visibility: hidden;">DRIBBLE</p>
+        </div>
+
+        <p class="word" style="margin-left: 5px;color: #ea4c89;">Dribble</p>
+       
+       </div></a>
+    </li>
+    <li style="float:left;">
+        <a style="color: white;" href="#">
+        
+        <div class="icon">
+        <div style="background-color: white;height: 30px;width: 30px;margin-left: 15px;margin-top: 0px; position: absolute;"></div>
+        <img class="pinterest" src="https://i.pinimg.com/originals/96/02/08/9602083f42463bb813399310d72233c5.png">
+        <div>
+            <p style="visibility: hidden;">PINTEREST</p>
+        </div>
+
+        <p class="word" style="margin-left: -2px;color: #e40a2d;">Pinterest</p>
+       
+       </div></a>
+    </li>
+</ul>
+
+<div style="background-color: #555555;color: white;margin-top: -16px;font-family: calibri;font-size: 20px;"><br>
+    <center>
+    <h4>Copyright &#169; 2019.Suven Consultants and technology pvt ltd.All rights reserved</h4><br>
+    </center>
+</div>
+</body>
+</html>
